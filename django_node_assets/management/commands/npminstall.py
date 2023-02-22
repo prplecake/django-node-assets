@@ -40,12 +40,17 @@ class Command(BaseCommand):
         if not node_modules_root.is_dir():
             node_modules_root.mkdir(parents=True)
 
+        try:
+            npm_executable = shutil.which('npm')
+        except AttributeError:  # fallback for Python < 3.3
+            npm_executable = '/usr/bin/npm'
+
         with NodePackageContext():
             try:
                 output = subprocess.check_output(
                     args=[
                         getattr(
-                            settings, 'NODE_PACKAGE_MANAGER_EXECUTABLE', shutil.which('npm')
+                            settings, 'NODE_PACKAGE_MANAGER_EXECUTABLE', npm_executable
                         ),
                         'install',
                         '--no-package-lock',
