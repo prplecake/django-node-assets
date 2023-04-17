@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-node-assets',
-    version='0.9.11',
+    version='0.9.12',
     description='The Django application that allows install and serve assets via Node.js package '
     'manager infrastructure.',
     author='Andrey Butenko',
@@ -22,9 +22,11 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Framework :: Django',
         'Framework :: Django :: 2.2',
         'Framework :: Django :: 3.2',
         'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
     ],
 )
